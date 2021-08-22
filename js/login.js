@@ -3,7 +3,7 @@ function verificar(){
     let usuario = {};
     if (dato.value.trim() === "")
         {
-            alert("sin datos");
+            alert("Por favor, complete todos los campos");
             
             }
     else {
