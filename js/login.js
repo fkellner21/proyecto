@@ -3,7 +3,12 @@ function verificar(){
     let usuario = {};
     if (dato.value.trim() === "")
         {
-            alert("Por favor, complete todos los campos");
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Por favor complete los campos!',
+                timer: 2000,
+              })
             
             }
     else {
@@ -19,3 +24,9 @@ function desconectar(){
     localStorage.clear();
     location.href="login.html";
 }
+document.addEventListener("DOMContentLoaded" , function(e){
+    let usu = JSON.parse(localStorage.getItem('usuario'));
+    document.getElementById("usuarios").innerHTML=usu.nombre;
+})
+
+

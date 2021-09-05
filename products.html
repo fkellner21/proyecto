@@ -22,6 +22,7 @@
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
         <button type="button" class="btn btn-dark" onclick="desconectar()">Salir</button>
+        <a class="btn btn-primary" href="my-profile.html" id="usuarios"></a>
       </div>
     </nav>
     <main role="main" class="pb-5">
@@ -34,10 +35,10 @@
               <div class="col text-right">
                   <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
                       <label class="btn btn-light active" id="sortAsc" >
-                          <input type="radio" name="options" autocomplete="off" checked>A-Z
+                          <input type="radio" name="options" autocomplete="off" checked>Menor precio
                       </label>
                       <label class="btn btn-light" id="sortDesc" >
-                          <input type="radio" name="options" autocomplete="off">Z-A
+                          <input type="radio" name="options" autocomplete="off">Mayor precio
                       </label>
                       <label class="btn btn-light" id="sortByCount" >
                           <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Cant.
@@ -50,7 +51,7 @@
               <div class="col-md-6 col-sm-12 mb-1 container">
                 <div class="row container p-0 m-0">
                   <div class="col">
-                    <p class="font-weight-normal text-right my-2">Cant.</p>
+                    <p class="font-weight-normal text-right my-2">Precio</p>
                   </div>
                   <div class="col">
                     <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
@@ -63,6 +64,15 @@
                       <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
                       <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
                     </div>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group">
+                <input type="search" id="buscar" class="form-control" aria-label="Text input with dropdown button">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary " type="button" onclick=verificando() data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Buscar</button>
+                  <div class="dropdown-select">
+                    <div role="separator" class="dropdown-divider"></div>
                   </div>
                 </div>
               </div>
