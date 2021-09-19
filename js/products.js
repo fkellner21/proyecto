@@ -87,13 +87,7 @@ function sortAndShowCategories(sortCriteria, categoriesArray){
     //Muestro las categorías ordenadas
     showProductList();
 }
-function verificando(){
-    var busco = document.getElementById("buscar").value
-    var profuctosfiltrados = currentCategoriesArray.filter(function(prod) {
-        return prod.name.toLowerCase().indexOf(busco.toLowerCase()) > -1;
-    })
-    showProductList(productosfiltrados);
-}
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -103,11 +97,11 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultObj.status === "ok"){
             sortAndShowCategories(ORDER_ASC_BY_COST, resultObj.data);
         }
-
+        document.getElementById("buscar").addEventListener("keyup", (event) => {
+            verificando();
+          })
     });
-    document.getElementById("buscar").addEventListener("keyup", (event) => {
-        verificando();
-      });
+
     document.getElementById("sortAsc").addEventListener("click", function(){
         sortAndShowCategories(ORDER_ASC_BY_COST);
     });
@@ -153,3 +147,11 @@ document.addEventListener("DOMContentLoaded", function(e){
         
     });
 });
+
+function verificando(){
+    var busco = document.getElementById("buscar").value
+    var productosfiltrados = currentCategoriesArray.filter(function(product) {
+        return product.name.toLowerCase().indexOf(busco.toLowerCase()) > -1;
+    })
+    showProductList(productosfiltrados);
+}

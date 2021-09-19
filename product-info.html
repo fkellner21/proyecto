@@ -11,9 +11,14 @@
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-</head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  </head>
 
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
@@ -29,12 +34,104 @@
   </nav>
   <div class="container p-5">
     <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 19/09/2021) y Entrega 4 (Fecha de entrega: 03/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+      <p>A los efectos del ejercicio, todos los productos direccionan a la información presente.</p>
+      </div>
+  </div>
+  <div>
+    <div class="text p-4">
+      <h1>Producto</h1>
+      <p class="lead" id="prodname"></p>
+    </div>
+    <div class="text p-4">
+      <h1>Descripción</h1>
+      <p class="lead" id="prod_desc"></p>
     </div>
   </div>
+  <div class="container">
+
+      <div id="images"></div>
+
+  </div>
+  <style>
+    .img-thumbnail{
+      transition: 2s ;
+
+      filter: gray;
+    -webkit-filter: grayscale(1); 
+    -webkit-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+    margin-bottom:20px;
+    z-index: 1;
+    }
+    .img-thumbnail:hover{
+      z-index: 6;
+      transform: scale(1.7);
+      filter: none; 
+     -webkit-filter: grayscale(0); 
+
+    }
+
+  </style>
+<div class="container">
+  <hr class="mb-4" width="20">
+  <h2 class="mb-3">Comentarios</h2>
+  <table class="table table-dark text-center">
+    <th class="table-primary text-center">Nombre</th><th class="table-primary text-center">Opinion</th><th class="text-center">Puntaje</th>
+    <tbody id="tabla"> </tbody>
+  </table>
+  <hr class="mb-4">
+  <i id="start"></i>
+</div>
+<div class="container">
+  <form>
+    <label>Usuario :   </label><label id="usucom"></label><br><br>
+    <label>Califiación : </label> <br>
+    <style>
+      .puntuacion {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    }
+
+    .puntuacion input {
+    position: absolute;
+    top: -100px;
+    }
+
+
+    .puntuacion label {
+    float: right;
+    color: #c1b8b8;
+    font-size: 30px; 
+    }
+
+    .puntuacion label:hover,
+    .puntuacion label:hover ~ label,
+    .puntuacion input:checked ~ label {
+    color:orange;
+    }
+
+    </style>
+    <div class="puntuacion">
+      <input id="radio1" type="radio" name="estrellas" value="5"onclick="document.getElementById('valor').innerHTML='5'"><!--
+      --><label for="radio1">★</label><!--
+      --><input id="radio2" type="radio" name="estrellas" value="4" onclick="document.getElementById('valor').innerHTML='4'"><!--
+      --><label for="radio2">★</label><!--
+      --><input id="radio3" type="radio" name="estrellas" value="3" onclick="document.getElementById('valor').innerHTML='3'"><!--
+      --><label for="radio3">★</label><!--
+      --><input id="radio4" type="radio" name="estrellas" value="2"onclick="document.getElementById('valor').innerHTML='2'"><!--
+      --><label for="radio4">★</label><!--
+      --><input id="radio5" type="radio" name="estrellas" value="1" onclick="document.getElementById('valor').innerHTML='1'"><!--
+      --><label for="radio5">★</label><br>
+      
+    </div><br>
+    <span id="valor" hidden></span>
+    <label>Comentario : </label><textarea id="texto" class="form-control" rows="3"></textarea><br>
+    <input type="button" class ="btn btn-primary" onclick="comentarlo()" value="comentar"></input>
+  </form>
+</div>
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
@@ -56,6 +153,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
+
 </body>
 
 </html>
