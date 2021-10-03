@@ -1,6 +1,8 @@
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
+let todos=[];
+let fotos=[];
 fetch(PRODUCT_INFO_URL)
 .then( respuesta=>respuesta.json()) 
 .then(datos=> { 
@@ -10,6 +12,38 @@ fetch(PRODUCT_INFO_URL)
 
 
 })
+
+function mostrarrel(todos){
+    let related=""
+    let f=0
+    fotos.relatedProducts.forEach( (e) => {
+
+        if (f==0){
+        related+=
+         `<div class="carousel-item active" data-bs-interval=4000 >
+            <img src="${todos[e].imgSrc}"  class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                <h3>${todos[e].name}</h3>
+                <p>${todos[e].description}</p>
+                </div>
+          </div> ` 
+          f++;
+        }
+        else{
+         related+=
+         `<div class="carousel-item" data-bs-interval=4000 >
+            <img src="${todos[e].imgSrc}"  class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                <h3>${todos[e].name}</h3>
+                <p>${todos[e].description}</p>
+                </div>
+          </div> ` 
+        }
+    });
+    document.getElementById("prodrel").innerHTML=related
+}
+
+
 
 function mostrarfotos (array){
     let htmlContentToAppend = "";
@@ -82,6 +116,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultObj.status === "ok"){
             fotos = resultObj.data;
             mostrarfotos(fotos.images)
+            
         }
     })
 
@@ -92,6 +127,23 @@ document.addEventListener("DOMContentLoaded", function(e){
         coment = resultObj.data;
        
      mostrarcomentario(coment);
+
+     
+        }
+    })
+})
+document.addEventListener("DOMContentLoaded", function(e){ 
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+    if (resultObj.status === "ok"){
+        todos = resultObj.data;
+        getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
+            if (resultObj.status === "ok"){
+                fotos = resultObj.data;
+             
+                mostrarrel(todos)
+            }
+        })
+      
 
      
         }
