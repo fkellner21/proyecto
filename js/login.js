@@ -27,7 +27,7 @@ function desconectar(){
 document.addEventListener("DOMContentLoaded" , function(e){
     let usu = JSON.parse(localStorage.getItem('usuario'));
     document.getElementById("usuarios").innerHTML=usu.nombre;
-    document.getElementById("usucom").innerHTML=usu.nombre;
+    //document.getElementById("usucom").innerHTML=usu.nombre;
 })
 
 

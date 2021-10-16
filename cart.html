@@ -13,6 +13,7 @@
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <script src="js/login.js" type="text/javascript"></script>
+  <script src="js/cart.js"></script>
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -52,14 +53,6 @@
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega: 14/11/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -68,11 +61,80 @@
       <div></div>
     </div>
   </div>
+  <div class="container" style="margin: 100px;">
+      <h3 style="text-align: center;">Carrito de compras</h3>
+      <div class="form-control container">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col" width="20%">Imagen</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Moneda</th>
+              <th scope="col">Precio Unitario</th>
+              <th scope="col" >Cantidad</th>
+              <th scope="col">Sub total</th>
+            </tr>
+          </thead>
+          <tbody id="comprashechas">
+            
+
+          </tbody>
+        </table>
+        <h3 style="text-align: center;">Opciones de compra</h3><br>
+        <div class="row">
+          <hr class="mb-4">
+            <h5 class="mb-3">Opciones de envío</h5>
+            <div class="d-block my-3">
+              <div class="custom-control custom-radio">
+                <input id="goldradio" name="publicationType" type="radio" class="custom-control-input" onclick="costoEnvio(30)" checked="" required="">
+                <label class="custom-control-label" for="goldradio"><span>Gold<p style="font-size: x-small; ">(U$S30)</p></span></label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" onclick="costoEnvio(20)" required="">
+                <label class="custom-control-label" for="premiumradio">Premium<p style="font-size: x-small; ">(U$S20)</p></label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" onclick="costoEnvio(10)" required="">
+                <label class="custom-control-label" for="standardradio">Estándar <p style="font-size: x-small; ">(U$S10)</p></label>
+              </div>
+              <div class="row">
+                <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#contidionsModal">Ver condiciones</button>
+              </div>
+            </div>
+            <hr class="mb-4">
+              <h4 class="mb-3">Costos</h4>
+              <ul class="list-group mb-3">
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">Precio (U$S)</h6>
+                <small class="text-muted">Productos seleccionados</small>
+              </div >
+              <span class="text-muted" id="precio">-</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">Envío (U$S)</h6>
+                <small class="text-muted">Según opción seleccionada</small>
+              </div>
+              <span class="text-muted" id="Penvio">-</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <span>Total (U$S)</span>
+                <strong id="Ptotal">-</strong>
+              </li>
+              </ul>
+            <hr class="mb-4">
+            <div style="margin-left: 70%;">
+              <button class="btn btn-primary btn-lg " >Comprar</button>
+            </div>
+      </div>
+  </div>
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
+
 </body>
 
 </html>
