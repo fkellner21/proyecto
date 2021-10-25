@@ -53,12 +53,13 @@ function showProductList(){
             
 
             htmlContentToAppend += `
+            <div class= "col-sm-4">
             <a href="product-info.html" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
+                <div class="row-4">
+                    <div class="row-3">
                         <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail" >
                     </div>
-                    <div class="col">
+                    <div class="row">
                         <div class="d-flex w-100 justify-content-between">
                             <h4 class="mb-1">`+ product.name + `</h4>
                             
@@ -69,6 +70,7 @@ function showProductList(){
                     </div>
                 </div>
             </a>
+            </div>
             `
         }
         document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
