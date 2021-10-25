@@ -15,9 +15,9 @@ function guardarcambios(){
     let telhtml=document.getElementById("tel");
     let fotitohtml=document.getElementById("fotito");
 
-        console.log(nombresLs)
+       
 
-    if(nombreshtml != "" && nombreshtml != undefined  ){
+    if(nombreshtml.value != "" && nombreshtml.value != undefined && nombreshtml.value != null){
         document.getElementById("nombres").setAttribute("placeholder", nombreshtml)
         usuario.nombres=nombreshtml.value;
         }
@@ -27,7 +27,7 @@ function guardarcambios(){
     //         usuario.nombres=nombresLs.value;
     //     }
 
-    if(apellidoshtml != "" && apellidoshtml != undefined){
+    if(apellidoshtml.value != "" && apellidoshtml.value != undefined && apellidoshtml.value != null){
         document.getElementById("apellidos").setAttribute("placeholder", apellidoshtml);
         usuario.apellidos=apellidoshtml.value;
         }
@@ -35,7 +35,7 @@ function guardarcambios(){
     //         document.getElementById("apellidos").setAttribute("placeholder", apellidosLs);
     //         usuario.apellidos=apellidosLs.value;
     //     }
-    if(edadhtml != "" && edadhtml != undefined){
+    if(edadhtml.value != "" && edadhtml.value != undefined && edadhtml.value != null){
         document.getElementById("edad").setAttribute("placeholder", edadhtml);
         usuario.edad=edadhtml.value;
         }
@@ -43,7 +43,7 @@ function guardarcambios(){
     //         document.getElementById("edad").setAttribute("placeholder", edadLs);
     //         usuario.edad=edadLs.value;
     //     }
-    if(emailhtml != "" && emailhtml != undefined){
+    if(emailhtml.value != "" && emailhtml.value != undefined && emailhtml.value != null){
         document.getElementById("email").setAttribute("placeholder", emailhtml);
         usuario.email=emailhtml.value;
         }
@@ -51,7 +51,7 @@ function guardarcambios(){
     //         document.getElementById("email").setAttribute("placeholder", emailLs);
     //         usuario.email=emailLs.value;
     //     }
-    if(telhtml != "" && telhtml != undefined){
+    if(telhtml.value != "" && telhtml.value != undefined && telhtml.value != null){
         document.getElementById("tel").setAttribute("placeholder", telhtml);
         usuario.tel=telhtml.value
         }
@@ -64,10 +64,10 @@ function guardarcambios(){
         document.getElementById("fotito").setAttribute("src", fotitohtml.src)
         usuario.foto=fotitohtml.src
     }
-    
+ 
     localStorage.setItem("usuario",JSON.stringify(usuario));
 
-
+         
 }
 
 //falta solucionar que pasa cuando el usuario no pone datos y da guardar
