@@ -1,13 +1,7 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+
 function guardarcambios(){
     let usuario=JSON.parse(localStorage.getItem('usuario'));
-    let nombresLs=usuario.nombres;
-    let apellidosLs=usuario.apellidos;
-    let edadLs=usuario.edad;
-    let emailLs=usuario.email;
-    let telLs=usuario.tel
+
     let nombreshtml=document.getElementById("nombres");
     let apellidoshtml=document.getElementById("apellidos");
     let edadhtml=document.getElementById("edad");
@@ -21,44 +15,27 @@ function guardarcambios(){
         document.getElementById("nombres").setAttribute("placeholder", nombreshtml)
         usuario.nombres=nombreshtml.value;
         }
-    // else if (nombresLs != "" && nombresLs != undefined){
 
-    //         document.getElementById("nombres").setAttribute("placeholder", nombresLs)
-    //         usuario.nombres=nombresLs.value;
-    //     }
 
     if(apellidoshtml.value != "" && apellidoshtml.value != undefined && apellidoshtml.value != null){
         document.getElementById("apellidos").setAttribute("placeholder", apellidoshtml);
         usuario.apellidos=apellidoshtml.value;
         }
-    // else if (apellidosLs != "" && apellidosLs != undefined){
-    //         document.getElementById("apellidos").setAttribute("placeholder", apellidosLs);
-    //         usuario.apellidos=apellidosLs.value;
-    //     }
+   
     if(edadhtml.value != "" && edadhtml.value != undefined && edadhtml.value != null){
         document.getElementById("edad").setAttribute("placeholder", edadhtml);
         usuario.edad=edadhtml.value;
         }
-    // else if (edadLs != "" && edadLs != undefined){
-    //         document.getElementById("edad").setAttribute("placeholder", edadLs);
-    //         usuario.edad=edadLs.value;
-    //     }
+ 
     if(emailhtml.value != "" && emailhtml.value != undefined && emailhtml.value != null){
         document.getElementById("email").setAttribute("placeholder", emailhtml);
         usuario.email=emailhtml.value;
         }
-    // else if (emailLs != "" && emailLs != undefined){
-    //         document.getElementById("email").setAttribute("placeholder", emailLs);
-    //         usuario.email=emailLs.value;
-    //     }
+  
     if(telhtml.value != "" && telhtml.value != undefined && telhtml.value != null){
         document.getElementById("tel").setAttribute("placeholder", telhtml);
         usuario.tel=telhtml.value
         }
-    // else if (telLs != "" && telLs != undefined){
-    //         document.getElementById("tel").setAttribute("placeholder", telLs);
-    //         usuario.tel=telLs.value
-    //     }
 
     if (fotitohtml.src != "" && fotitohtml.src != undefined){
         document.getElementById("fotito").setAttribute("src", fotitohtml.src)
@@ -70,7 +47,7 @@ function guardarcambios(){
          
 }
 
-//falta solucionar que pasa cuando el usuario no pone datos y da guardar
+
 
 function previewFile() {
     var preview = document.querySelector('img');
